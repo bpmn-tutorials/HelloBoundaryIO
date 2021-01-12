@@ -1,5 +1,5 @@
 # HelloBoundaryIO
-Repository to test access task details in boundary event.
+Repository to test access task details in boundary event. 
 
 The new feature allows you to get information about the node on which a Boundary Event was triggered.
 
@@ -8,8 +8,9 @@ The new feature allows you to get information about the node on which a Boundary
 
 ## How does it works
 
-* Process has variable `nodeInstance`
-* When timer (PT1S which means after 1 second) on Human Task triggered it also maps node it attached to to the process variable `nodeInstance`
+* Process has variable `nodeInstance` (can be any)
+* When timer (PT1S which means after 1 second) on Human Task triggered Boundary Event maps node instance to the Process variable. To do it you can use `nodeInstance` predefined output variable name. See picture, where Name is predefined `nodeInstance` and can't be changed, Target is the process variable from the previous point and can be chaged togather with Process Variable name if needed.
+![](pictures/DataIO.png)
 * `Print nodeInstance variable` Script task printing variable to the console:
 
 ### The code in the Script Task
@@ -32,3 +33,4 @@ System.out.println("");
 
 ### Sum up
 For any Boundary Event, you can use `nodeInstance` predefined output variable name to pass the instance of the node Boundary Event was attached to the upper-level sub-process to use it later.
+
